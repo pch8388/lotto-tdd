@@ -23,6 +23,10 @@ public class LottoTicket {
     }
 
     public boolean isWinner(LottoTicket winner) {
-        return false;
+        return winner.getLottoNumbers().containsAll(lottoNumbers);
+    }
+
+    public Set<Integer> getLottoNumbers() {
+        return lottoNumbers;
     }
 }
