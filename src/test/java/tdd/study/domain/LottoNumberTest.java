@@ -10,7 +10,7 @@ class LottoNumberTest {
     @DisplayName("번호 생성 확인")
     @Test
     public void create() {
-        LottoNumber number = new LottoNumber(40);
-        assertThat(number).isEqualTo(new LottoNumber(40));
+        LottoNumber number = LottoNumber.of(40);
+        assertThat(number).isEqualTo(LottoNumber.of(40));
     }
 }
