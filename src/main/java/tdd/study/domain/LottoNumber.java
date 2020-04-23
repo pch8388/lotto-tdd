@@ -3,6 +3,7 @@ package tdd.study.domain;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class LottoNumber {
@@ -23,7 +24,9 @@ public class LottoNumber {
     }
 
     public static LottoNumber of(int number) {
-        return cache.get(number);
+        return Optional.ofNullable(cache.get(number)).orElseGet(() -> {
+            throw new IllegalArgumentException();
+        });
     }
 
     @Override
