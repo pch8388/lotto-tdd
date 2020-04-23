@@ -15,4 +15,11 @@ class LottoTicketTest {
         assertThatThrownBy(() -> LottoTicket.of(Arrays.asList(1, 2, 3, 4, 5, 6, 7)))
             .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("같은 숫자가 중복되서는 안된다")
+    @Test
+    public void validateDuplicate() {
+        assertThatThrownBy(() -> LottoTicket.of(Arrays.asList(1, 2, 2, 3, 4, 5)))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
 }
