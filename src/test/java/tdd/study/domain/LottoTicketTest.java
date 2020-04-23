@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LottoTicketTest {
@@ -21,5 +22,16 @@ class LottoTicketTest {
     public void validateDuplicate() {
         assertThatThrownBy(() -> LottoTicket.of(Arrays.asList(1, 2, 2, 3, 4, 5)))
             .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("당첨된 티켓인지 확인")
+    @Test
+    public void winnerCheck() {
+        final LottoTicket ticket = LottoTicket.of(Arrays.asList(1, 2, 3, 4, 5, 6));
+        final LottoTicket ticket1 = LottoTicket.of(Arrays.asList(1, 3, 4, 5, 6, 7));
+        final LottoTicket winner = LottoTicket.of(Arrays.asList(1, 2, 3, 4, 5, 6));
+
+        assertThat(ticket.isWinner(winner)).isTrue();
+        assertThat(ticket1.isWinner(winner)).isFalse();
     }
 }

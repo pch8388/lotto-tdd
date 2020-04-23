@@ -21,4 +21,8 @@ public class LottoTicket {
 
         return new LottoTicket(lottoNumbers);
     }
+
+    public boolean isWinner(LottoTicket winner) {
+        return false;
+    }
 }
