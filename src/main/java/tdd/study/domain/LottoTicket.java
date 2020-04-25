@@ -15,4 +15,8 @@ public class LottoTicket {
     public String printLottoNumbers() {
         return lottoNumbers.print();
     }
+
+    public Rank getRank(LottoTicket winner) {
+        return null;
+    }
 }
