@@ -12,7 +12,6 @@ class LottoCreatorTest {
     public void create() {
         LottoTicket lottoTicket = LottoCreator.create();
 
-        assert lottoTicket != null;
         assertThat(lottoTicket.getLottoNumbers().size()).isEqualTo(6);
     }
 
