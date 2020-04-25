@@ -38,4 +38,8 @@ public enum Rank {
     public String getMessage() {
         return message;
     }
+
+    public long getMoney(Long winCount) {
+        return getWinningMoney() * winCount;
+    }
 }
