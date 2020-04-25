@@ -10,9 +10,9 @@ public enum Rank {
     SECOND(5, 30_000_000, "5개 일치, 보너스 볼 일치"),
     FIRST(6, 2_000_000_000, "6개 일치");
 
-    private int countOfMatch;
-    private int winningMoney;
-    private String message;
+    private final int countOfMatch;
+    private final int winningMoney;
+    private final String message;
 
     private Rank(int countOfMatch, int winningMoney, String message) {
         this.countOfMatch = countOfMatch;
@@ -25,5 +25,17 @@ public enum Rank {
             .filter(r -> r.countOfMatch == countOfMatch)
             .findAny()
             .orElse(Rank.MISS);
+    }
+
+    public int getCountOfMatch() {
+        return countOfMatch;
+    }
+
+    public int getWinningMoney() {
+        return winningMoney;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
