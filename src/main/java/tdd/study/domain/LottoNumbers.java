@@ -41,7 +41,20 @@ public class LottoNumbers {
         return lottoNumbers.toString();
     }
 
-    public int match(LottoNumbers winNumbers) {
-        return 0;
+    public int match(LottoNumbers target) {
+        int cnt = 0;
+        for (LottoNumber lottoNumber : lottoNumbers) {
+            cnt += target.increment(lottoNumber);
+        }
+
+        return cnt;
+    }
+
+    private int increment(LottoNumber lottoNumber) {
+        return isContains(lottoNumber) ? 1 : 0;
+    }
+
+    private boolean isContains(LottoNumber lottoNumber) {
+        return lottoNumbers.contains(lottoNumber);
     }
 }
