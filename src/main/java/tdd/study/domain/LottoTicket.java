@@ -1,8 +1,8 @@
 package tdd.study.domain;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class LottoTicket {
 
@@ -10,6 +10,7 @@ public class LottoTicket {
     private final List<Integer> lottoNumbers;
 
     private LottoTicket(List<Integer> numbers) {
+        Collections.sort(numbers);
         this.lottoNumbers = numbers;
     }
 
