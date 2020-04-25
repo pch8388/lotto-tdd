@@ -8,16 +8,20 @@ import static java.util.stream.Collectors.toList;
 
 public class LottoCreator {
 
-    private static final List<Integer> numbers;
+    private static List<Integer> numbers;
 
-    static {
+    public LottoCreator() {
         numbers = IntStream.rangeClosed(1, 45)
             .boxed()
             .collect(toList());
     }
 
-    public static LottoTicket create() {
+    public LottoTicket autoCreate() {
         Collections.shuffle(numbers);
         return LottoTicket.of(numbers.subList(0, 6));
+    }
+
+    public LottoTicket manualCreate(List<Integer> numbers) {
+        return LottoTicket.of(numbers);
     }
 }

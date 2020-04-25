@@ -10,7 +10,7 @@ class LottoCreatorTest {
     @DisplayName("자동으로 로또번호 생성")
     @Test
     public void create() {
-        LottoTicket lottoTicket = LottoCreator.create();
+        LottoTicket lottoTicket = new LottoCreator().autoCreate();
 
         assertThat(lottoTicket.getLottoNumbers().size()).isEqualTo(6);
     }

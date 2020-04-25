@@ -16,7 +16,7 @@ public class LottoStore {
 
         List<LottoTicket> tickets = new ArrayList<>();
         for (int i = START_INDEX; i < buyCount; i++) {
-            tickets.add(LottoCreator.create());
+            tickets.add(new LottoCreator().autoCreate());
         }
         return tickets;
     }
