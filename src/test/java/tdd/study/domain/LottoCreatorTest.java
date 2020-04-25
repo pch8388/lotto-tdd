@@ -12,7 +12,7 @@ class LottoCreatorTest {
     public void create() {
         LottoTicket lottoTicket = new LottoCreator().autoCreate();
 
-        assertThat(lottoTicket.getLottoNumbers().size()).isEqualTo(6);
+        assertThat(lottoTicket.printLottoNumbers()).contains(",,,,,");
     }
 
 }

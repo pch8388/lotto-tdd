@@ -18,10 +18,10 @@ public class LottoCreator {
 
     public LottoTicket autoCreate() {
         Collections.shuffle(numbers);
-        return LottoTicket.of(numbers.subList(0, 6));
+        return LottoTicket.of(LottoNumbers.of(numbers.subList(0, 6)));
     }
 
     public LottoTicket manualCreate(List<Integer> numbers) {
-        return LottoTicket.of(numbers);
+        return LottoTicket.of(LottoNumbers.of(numbers));
     }
 }
