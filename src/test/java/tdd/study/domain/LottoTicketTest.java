@@ -14,14 +14,14 @@ class LottoTicketTest {
     @Test
     public void validateSize() {
         assertThatThrownBy(() -> LottoTicket.of(Arrays.asList(1, 2, 3, 4, 5, 6, 7)))
-            .isInstanceOf(IllegalArgumentException.class);
+            .isInstanceOf(IllegalArgumentException.class).hasMessage("로또 사이즈는 6개!!");
     }
 
     @DisplayName("같은 숫자가 중복되서는 안된다")
     @Test
     public void validateDuplicate() {
         assertThatThrownBy(() -> LottoTicket.of(Arrays.asList(1, 2, 2, 3, 4, 5)))
-            .isInstanceOf(IllegalArgumentException.class);
+            .isInstanceOf(IllegalArgumentException.class).hasMessage("같은 숫자가 중복되면 안됩니다.");
     }
 
     @DisplayName("당첨된 티켓인지 확인")

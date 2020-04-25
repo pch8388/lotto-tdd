@@ -7,26 +7,35 @@ import java.util.Set;
 public class LottoTicket {
 
     private static final int LOTTO_SIZE = 6;
-    private final Set<Integer> lottoNumbers;
+    private final List<Integer> lottoNumbers;
 
-    private LottoTicket(Set<Integer> numbers) {
+    private LottoTicket(List<Integer> numbers) {
         this.lottoNumbers = numbers;
     }
 
     public static LottoTicket of(List<Integer> numbers) {
-        Set<Integer> lottoNumbers = new HashSet<>(numbers);
-        if (lottoNumbers.size() != LOTTO_SIZE) {
+        validateSize(numbers);
+        validateDuplicate(numbers);
+        return new LottoTicket(numbers);
+    }
+
+    private static void validateSize(List<Integer> numbers) {
+        if (numbers.size() != LOTTO_SIZE) {
             throw new IllegalArgumentException("로또 사이즈는 6개!!");
         }
+    }
 
-        return new LottoTicket(lottoNumbers);
+    private static void validateDuplicate(List<Integer> numbers) {
+        if (new HashSet<>(numbers).size() != LOTTO_SIZE) {
+            throw new IllegalArgumentException("같은 숫자가 중복되면 안됩니다.");
+        }
     }
 
     public boolean isWinner(LottoTicket winner) {
         return winner.getLottoNumbers().containsAll(lottoNumbers);
     }
 
-    public Set<Integer> getLottoNumbers() {
+    public List<Integer> getLottoNumbers() {
         return lottoNumbers;
     }
 }
