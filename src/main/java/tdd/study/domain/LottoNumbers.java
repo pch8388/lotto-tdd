@@ -40,4 +40,8 @@ public class LottoNumbers {
     public String print() {
         return lottoNumbers.toString();
     }
+
+    public int match(LottoNumbers winNumbers) {
+        return 0;
+    }
 }
