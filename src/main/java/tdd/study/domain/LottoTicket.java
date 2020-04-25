@@ -16,7 +16,7 @@ public class LottoTicket {
         return lottoNumbers.print();
     }
 
-    public Rank getRank(LottoTicket winner) {
-        return null;
+    public Rank getRank(LottoNumbers winner) {
+        return Rank.valueOf(lottoNumbers.match(winner));
     }
 }
