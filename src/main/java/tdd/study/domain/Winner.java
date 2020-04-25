@@ -29,4 +29,8 @@ public class Winner {
     public Long countOfWinner(Rank rank) {
         return winners.getOrDefault(rank, DEFAULT_VALUE);
     }
+
+    public double profitRate() {
+        return 0;
+    }
 }
