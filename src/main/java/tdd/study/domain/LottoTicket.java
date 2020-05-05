@@ -12,11 +12,12 @@ public class LottoTicket {
         return new LottoTicket(lottoNumbers);
     }
 
-    public String printLottoNumbers() {
-        return lottoNumbers.print();
-    }
-
     public Rank getRank(LottoNumbers winner) {
         return Rank.valueOf(lottoNumbers.match(winner));
+    }
+
+    @Override
+    public String toString() {
+        return lottoNumbers.print();
     }
 }
