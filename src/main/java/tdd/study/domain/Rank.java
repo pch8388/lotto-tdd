@@ -14,17 +14,24 @@ public enum Rank {
     private final int winningMoney;
     private final String message;
 
-    private Rank(int countOfMatch, int winningMoney, String message) {
+    Rank(int countOfMatch, int winningMoney, String message) {
         this.countOfMatch = countOfMatch;
         this.winningMoney = winningMoney;
         this.message = message;
     }
 
-    public static Rank valueOf(int countOfMatch) {
+    public static Rank valueOf(int countOfMatch, boolean isBonus) {
+        if (isSecond(countOfMatch, isBonus)) {
+            return Rank.SECOND;
+        }
         return Arrays.stream(Rank.values())
             .filter(r -> r.countOfMatch == countOfMatch)
             .findAny()
             .orElse(Rank.MISS);
+    }
+
+    private static boolean isSecond(int countOfMatch, boolean isBonus) {
+        return isBonus && countOfMatch == 5;
     }
 
     public int getCountOfMatch() {
