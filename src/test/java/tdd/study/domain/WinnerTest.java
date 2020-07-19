@@ -23,7 +23,8 @@ class WinnerTest {
         );
         final List<Integer> winNumbers = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-        Winner winner = Winner.of(tickets, LottoNumbers.of(winNumbers));
+        final int bonusNumber = 3;
+        Winner winner = Winner.of(tickets, LottoNumbers.of(winNumbers), LottoNumber.of(bonusNumber));
         assertThat(winner.countOfWinner(Rank.FIRST)).isEqualTo(1);
         assertThat(winner.countOfWinner(Rank.FOURTH)).isEqualTo(2);
         assertThat(winner.countOfWinner(Rank.FIFTH)).isEqualTo(1);
@@ -44,7 +45,8 @@ class WinnerTest {
         long lotteryPrize = 105_000;
         int price = 5000;
         // 4등 2개, 5등 1개
-        Winner winner = Winner.of(tickets, LottoNumbers.of(winNumbers));
+        final int bonusNumber = 3;
+        Winner winner = Winner.of(tickets, LottoNumbers.of(winNumbers), LottoNumber.of(bonusNumber));
         assertThat(winner.profitRate()).isEqualTo(lotteryPrize / (double) price);
     }
 }

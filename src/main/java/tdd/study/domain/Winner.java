@@ -21,10 +21,12 @@ public class Winner {
         this.price = ranks.size() * UNIT_PRICE;
     }
 
-    public static Winner of(List<LottoTicket> tickets, LottoNumbers winLotto) {
+    public static Winner of(List<LottoTicket> tickets,
+                            LottoNumbers winLotto, LottoNumber bonusNumber) {
+
         List<Rank> ranks = new ArrayList<>();
         for (LottoTicket ticket : tickets) {
-            ranks.add(ticket.getRank(winLotto));
+            ranks.add(ticket.getRank(winLotto, bonusNumber));
         }
         return new Winner(ranks);
     }
