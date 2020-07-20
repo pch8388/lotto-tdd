@@ -13,8 +13,9 @@ class LottoCreatorTest {
     @Test
     public void create() {
         LottoTicket lottoTicket = new LottoCreator().autoCreate();
+        LottoNumber bonusNumber = LottoNumber.of(11);
         final Rank rank =
-            lottoTicket.getRank(LottoNumbers.of(Arrays.asList(1, 2, 3, 4, 5, 6)));
+            lottoTicket.getRank(LottoNumbers.of(Arrays.asList(1, 2, 3, 4, 5, 6)), bonusNumber);
 
         assertThat(rank).isInstanceOf(Rank.class);
     }
