@@ -12,8 +12,8 @@ public class LottoTicket {
         return new LottoTicket(lottoNumbers);
     }
 
-    public Rank getRank(LottoNumbers winner) {
-        return Rank.valueOf(lottoNumbers.match(winner));
+    public Rank getRank(LottoNumbers winner, LottoNumber bonusNumber) {
+        return Rank.valueOf(lottoNumbers.match(winner), lottoNumbers.isContains(bonusNumber));
     }
 
     @Override

@@ -56,7 +56,7 @@ public class LottoNumbers {
         return isContains(lottoNumber) ? 1 : 0;
     }
 
-    private boolean isContains(LottoNumber lottoNumber) {
+    boolean isContains(LottoNumber lottoNumber) {
         return lottoNumbers.contains(lottoNumber);
     }
 }
