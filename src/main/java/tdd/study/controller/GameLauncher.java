@@ -1,9 +1,6 @@
 package tdd.study.controller;
 
-import tdd.study.domain.LottoNumbers;
-import tdd.study.domain.LottoStore;
-import tdd.study.domain.LottoTicket;
-import tdd.study.domain.Winner;
+import tdd.study.domain.*;
 import tdd.study.view.InputView;
 import tdd.study.view.OutputView;
 
@@ -25,7 +22,9 @@ public class GameLauncher {
                 .map(Integer::valueOf)
                 .collect(toList());
 
-        final Winner winner = Winner.of(lottoTickets, LottoNumbers.of(winNumbers));
+        final int bonusNumber = InputView.readBonusNumber();
+
+        final Winner winner = Winner.of(lottoTickets, LottoNumbers.of(winNumbers), LottoNumber.of(bonusNumber));
 
         OutputView.printStatistics(winner);
     }
